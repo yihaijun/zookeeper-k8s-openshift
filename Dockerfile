@@ -33,7 +33,6 @@ RUN set -ex \
 
 # Add custom scripts and configure user
 ADD zk_env.sh zk_setup.sh zk_status.sh /opt/zookeeper/bin/
-ADD zk_env.sh zk_setup.sh zk_status.sh /zookeeper-3.4.13/bin/
 
 RUN set -ex; \
     chmod a+x $ZOO_HOME/bin/zk_*.sh; \
@@ -43,7 +42,7 @@ RUN set -ex; \
     chown -R $ZOO_USER:$ZOO_GROUP $ZOO_HOME; \
     ln -s $ZOO_HOME/bin/zk_*.sh /usr/bin
 
-USER $ZOO_USER
+#USER $ZOO_USER
 WORKDIR $ZOO_HOME/bin/
 
 EXPOSE ${ZK_clientPort:-2181} ${ZOO_SERVER_PORT:-2888} ${ZOO_ELECTION_PORT:-3888}
