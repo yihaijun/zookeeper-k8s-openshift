@@ -46,13 +46,12 @@ RUN set -ex; \
 USER root
 #USER $ZOO_USER
 WORKDIR $ZOO_HOME/bin/
+# CMD zk_setup.sh && ./zkServer.sh start-foreground
 
 EXPOSE ${ZK_clientPort:-2181} ${ZOO_SERVER_PORT:-2888} ${ZOO_ELECTION_PORT:-3888}
 
 ENTRYPOINT ["./zk_env.sh"]
 
-RUN echo "aaa" > /etc/a.log
+RUN echo "aaa" > /usr/alog
 
-CMD ["tail",“-f","/etc/a.log"]
-
-# CMD zk_setup.sh && ./zkServer.sh start-foreground
+CMD ["tail","-f","/usr/alog"]
