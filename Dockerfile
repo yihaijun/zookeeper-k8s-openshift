@@ -21,7 +21,8 @@ RUN set -ex; \
 ADD zk_download.sh /tmp/
 
 RUN set -ex; \
-    mkdir -p $ZOO_HOME; \
+    mkdir -p $ZOO_HOME/bin; \
+    mkdir -p $ZOO_HOME/conf; \
     chmod a+x /tmp/zk_download.sh;
 
 RUN /tmp/zk_download.sh
