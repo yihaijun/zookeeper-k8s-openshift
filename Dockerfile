@@ -41,7 +41,9 @@ RUN set -ex; \
     adduser -h $ZOO_HOME -g "Zookeeper user" -s /sbin/nologin -D -G $ZOO_GROUP -G sudo $ZOO_USER; \
     chown -R $ZOO_USER:$ZOO_GROUP $ZOO_HOME; \
     ln -s $ZOO_HOME/bin/zk_*.sh /usr/bin
+    
 
+USER root
 #USER $ZOO_USER
 WORKDIR $ZOO_HOME/bin/
 
@@ -49,4 +51,8 @@ EXPOSE ${ZK_clientPort:-2181} ${ZOO_SERVER_PORT:-2888} ${ZOO_ELECTION_PORT:-3888
 
 ENTRYPOINT ["./zk_env.sh"]
 
-CMD zk_setup.sh && ./zkServer.sh start-foreground
+RUN echo "aaa" > /etc/a.log
+
+CMD ["tail",“-f","/etc/a.log"]
+
+# CMD zk_setup.sh && ./zkServer.sh start-foreground
