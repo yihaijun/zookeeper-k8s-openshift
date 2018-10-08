@@ -17,7 +17,7 @@ RUN set -ex; \
     apk add --update --no-cache \
       bash tar wget curl gnupg openssl ca-certificates
 
-# Download zookeeper distribution under ZOO_HOME directory
+# Download zookeeper distribution under ZOO_HOME /zookeeper-3.4.13/
 ADD zk_download.sh /tmp/
 
 RUN set -ex; \
@@ -33,6 +33,7 @@ RUN set -ex \
 
 # Add custom scripts and configure user
 ADD zk_env.sh zk_setup.sh zk_status.sh /opt/zookeeper/bin/
+ADD zk_env.sh zk_setup.sh zk_status.sh /zookeeper-3.4.13/bin/
 
 RUN set -ex; \
     chmod a+x $ZOO_HOME/bin/zk_*.sh; \
