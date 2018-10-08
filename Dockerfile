@@ -21,8 +21,8 @@ RUN set -ex; \
 ADD zk_download.sh /tmp/
 
 RUN set -ex; \
-    mkdir -p $ZOO_HOME/bin; \
-    mkdir -p $ZOO_HOME/conf; \
+    mkdir -p /opt/zookeeper/bin; \
+    mkdir -p /opt/zookeeper/conf; \
     chmod a+x /tmp/zk_download.sh;
 
 RUN /tmp/zk_download.sh
@@ -32,7 +32,7 @@ RUN set -ex \
     apk del wget gnupg
 
 # Add custom scripts and configure user
-ADD zk_env.sh zk_setup.sh zk_status.sh $ZOO_HOME/bin/
+ADD zk_env.sh zk_setup.sh zk_status.sh /opt/zookeeper/bin/
 
 RUN set -ex; \
     chmod a+x $ZOO_HOME/bin/zk_*.sh; \
