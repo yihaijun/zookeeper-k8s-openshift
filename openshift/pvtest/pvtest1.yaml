@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolume           #指定资源模板类型
+metadata:
+  name: pvtest1                        #指定PV名称
+spec:
+  capacity:
+    storage: 10m                   #指定PV的可用大小
+  accessModes:
+    - ReadWriteOnce           #指定访问模式
+  nfs:                                     #指定使用nfs
+    path: /root/yihaijun/persistentVolumeClaimPath/pvtest1 #指定NFS上的挂载目录
+    server: 172.16.30.98
+persistentVolumeReclaimPolicy: Retain    #指定数据回收策略

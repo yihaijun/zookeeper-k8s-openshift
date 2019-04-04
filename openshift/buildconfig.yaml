@@ -13,7 +13,7 @@ labels:
 
 parameters:
 - name: GITHUB_REPOSITORY
-  value: "https://github.com/engapa/zookeeper-k8s-openshift"
+  value: "https://github.com/yihaijun/zookeeper-k8s-openshift"
   description: Source code respository (Github)
   required: true
 - name: GITHUB_REF

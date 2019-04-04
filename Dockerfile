@@ -5,7 +5,7 @@ MAINTAINER Enrique Garcia <engapa@gmail.com>
 ARG ZOO_HOME=/opt/zookeeper
 ARG ZOO_USER=zookeeper
 ARG ZOO_GROUP=zookeeper
-ARG ZOO_VERSION="3.4.13"
+ARG ZOO_VERSION="3.4.14"
 
 ENV ZOO_HOME=$ZOO_HOME \
     ZOO_VERSION=$ZOO_VERSION \
@@ -17,7 +17,7 @@ RUN set -ex; \
     apk add --update --no-cache \
       bash tar wget curl gnupg openssl ca-certificates
 
-# Download zookeeper distribution under ZOO_HOME /zookeeper-3.4.13/
+# Download zookeeper distribution under ZOO_HOME /zookeeper-3.4.14/
 ADD zk_download.sh /tmp/
 
 RUN set -ex; \
